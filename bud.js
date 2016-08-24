@@ -1,6 +1,7 @@
 
 var bud =function(){ 
-    var b = {}
+    "use strict";
+    var b = {};
     var elementCount = 0;
     b.create = function(data){
         if (!data){return} 
@@ -37,7 +38,7 @@ var bud =function(){
             }  
         }
         if (data.text){
-            text = document.createTextNode(data.text);
+            var text = document.createTextNode(data.text);
             node.appendChild(text);
         }
         // create template
