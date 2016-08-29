@@ -1,11 +1,25 @@
-
 var bud =function(){ 
     "use strict";
     var b = {};
     var elementCount = 0;
+    
+    //
+    //  inId is the base parent id  
+    //  <> is the node type, default is div
+    //  ider id generation for the item (given it's data)
+    //  _id appended to base item id for easy reference ie: baseItemId+"_"+_id
+    //  onclick ...
+    //  c children data used to create children
+    //  t function for template generation
+    //  text ... create child text node
+    //  class ...
+    
     b.create = function(data){
         if (!data){return} 
         //stores the html node
+        if (data.id && data._id){
+            console.error('both id and _id are defined', data.id);
+        }
         var node;
         //inId is the id of the base object
         if (data.inId && data.inId!=""){
@@ -17,15 +31,21 @@ var bud =function(){
                 data['<>'] = 'div';
             }
             node = document.createElement(data["<>"]);
-            
-            if (data._id){
-                data.id = data.parentid+data._id;
-            } 
-            if (!data.id){
-                data.id = 'genid'+elementCount+"_";
-                elementCount++;
+            if (!data.ider){
+                if (data.id){
+                    node.ider = function(){return data.id;}
+                }
+                else if (data._id){
+                    var id = data.parentid+data._id;
+                    data.ider = function(){return id;} 
+                } 
+                if (!data.ider){
+                    var count = elementCount;
+                    elementCount++;
+                    data.ider = function(){return 'genid'+elementCount+"_";}
+                }
             }
-            node.id = data.id;
+            node.id = node.ider(data);
         }
         
         if (data.onclick){
