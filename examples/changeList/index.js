@@ -43,7 +43,8 @@ var template= function (data){
             {'<>':'div', '_id':'text','class':'text','text':data},
             {'<>':'button', '_id':"remove", 'text':'remove', 'onclick':remove},
             {'<>':'button', '_id':"doData", 'text':'print', 'onclick':doData},
-        ], 'ider' = function (d){return d}}
+            ], 'ider' : function (d){return d}
+        }
     );
 }
 

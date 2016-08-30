@@ -37,13 +37,15 @@ var bud =function(){
                 }
                 else if (data._id){
                     var id = data.parentid+data._id;
-                    data.ider = function(){return id;} 
+                    node.ider = function(){return id;} 
                 } 
-                if (!data.ider){
+                if (!node.ider){
                     var count = elementCount;
                     elementCount++;
-                    data.ider = function(){return 'genid'+elementCount+"_";}
+                    node.ider = function(data){return 'genid'+elementCount+"_";};
                 }
+            }else{
+                node.ider = data.ider;
             }
             node.id = node.ider(data);
         }
