@@ -71,10 +71,8 @@ var bud =function(){
                 var newid = n.id;
                 var el = document.getElementById(newid);
                 if (el){
-                    console.log("replacing: ", n, el);
                     el.parentNode.replaceChild(n, el);
                 }else{
-                    console.log("adding", n.id);
                     node.appendChild(n);
                 }
             }
@@ -105,7 +103,7 @@ var bud =function(){
         return path;
     }
     b.gid = function(id){
-        return document.getElementById(id);
+        return document.getElementById(id); 
     }
     b.sort = function(id, func){
         var list = document.getElementById(id);

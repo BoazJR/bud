@@ -7,14 +7,12 @@ var doData = function(event){
 var remove = function(event){
     parent = bud.getPath(event)[2];
     el = bud.getPath(event)[1];
-    console.log('remove', el);
     parent.removeChild(el);
 }
 
 var additem = function(event){
     el = document.getElementById('ita');
     text = el.value;
-    console.log(text);
     list = document.getElementById('list').additem(text);
 }
 
