@@ -65,8 +65,18 @@ var bud =function(){
         }
         // create template
         if (data.t){
+            // if node exists it replaces it otherwise it creates a new one
             node.additem =function(d){ 
-                node.appendChild(data.t(d));
+                var n = data.t(d);
+                var newid = n.id;
+                var el = document.getElementById(newid);
+                if (el){
+                    console.log("replacing: ", n, el);
+                    el.parentNode.replaceChild(n, el);
+                }else{
+                    console.log("adding", n.id);
+                    node.appendChild(n);
+                }
             }
             if (data.data){
                 for (var i = 0; i<data.data.length;i++){
