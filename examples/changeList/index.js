@@ -28,7 +28,7 @@ var template= function (data){
             {'<>':'div', '_id':'text','class':'text','text':data},
             {'<>':'button', '_id':"remove", 'text':'remove', 'onclick':remove},
             {'<>':'button', '_id':"doData", 'text':'print', 'onclick':doData},
-            {'<>':'button', '_id':"doData", 'text':'printider', 'onclick':printider},
+            {'<>':'button', '_id':"printIder", 'text':'printider', 'onclick':printider},
             ], 'ider' : function (d){return data}
         }
     );

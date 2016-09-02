@@ -71,7 +71,9 @@ var bud =function(){
                 var newid = n.id;
                 var el = document.getElementById(newid);
                 if (el){
-                    el.parentNode.replaceChild(n, el);
+                    if(!el.isEqualNode(n)){
+                        el.parentNode.replaceChild(n, el);
+                    }
                 }else{
                     node.appendChild(n);
                 }
