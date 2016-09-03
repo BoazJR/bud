@@ -2,7 +2,11 @@ var bud =function(){
     "use strict";
     var b = {};
     var elementCount = 0;
-    
+    var removeAllChildren = function(node){ 
+        while(node.firstChild) {
+            node.removeChild(node.firstChild);
+        } 
+    }
     //
     //  inId is the base parent id  
     //  <> is the node type, default is div
@@ -53,6 +57,9 @@ var bud =function(){
         if (data.onclick){
             node.onclick = data.onclick;
         }
+        if (data.clear){
+            removeAllChildren(node);            
+        }
         if (data.c){
             for (var i=0;i<data.c.length;i++){
                 data.c[i].parentid= node.id;
@@ -84,11 +91,12 @@ var bud =function(){
                 }
             }
         }
-        if (data.class){
-            node.className += " "+ data.class;
+        if (data.className){
+            node.className += " "+ data.className;
         }
         return node;
     }
+
     
 
     // helpers
