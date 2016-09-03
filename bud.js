@@ -53,7 +53,11 @@ var bud =function(){
             }
             node.id = node.ider(data);
         }
-        
+        if (data.style){
+            for (var s in data.style){
+                node.style[s] = data.style[s];
+            }
+        } 
         if (data.onclick){
             node.onclick = data.onclick;
         }
