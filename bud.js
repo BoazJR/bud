@@ -66,7 +66,9 @@ var bud =function(){
         // create template
         if (data.t){
             // if node exists it replaces it otherwise it creates a new one
-            node.additem =function(d){ 
+            node.updateItem=function(d){ 
+                console.log("Update Item Data");
+                
                 var n = data.t(d);
                 var newid = n.id;
                 var el = document.getElementById(newid);
